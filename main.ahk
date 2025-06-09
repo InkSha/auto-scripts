@@ -1,23 +1,22 @@
 #Requires AutoHotkey v2.0
 
-; Win + Alt + Shift
+TrayTip "脚本启动", "脚本提示", 1
 
-F8::
-{
-  if !WinExist("无标题 - Notepad") {
-    Run "Notepad"
-  }
+; Ctrl + Alt + Shift + T
+#Include always-on-top.ahk
+; Win + numeric keyboard 1
+; Win + numeric keyboard 2
+; Win + numeric keyboard 3
+; Win + numeric keyboard 4
+; Win + numeric keyboard .
+#Include auto-click.ahk
+; /ok
+#Include quick-word.ahk
+; Ctrl + Alt + T
+#Include terminal.ahk
 
-  WinActivate("无标题 - Notepad")
-  WinWaitActive("无标题 - Notepad")
-
-  SendInput ("Hello World1")
-  SendInput ("Hello World2")
-  SendInput ("Hello World3")
-  SendInput ("Hello World4")
-}
-
-F9:: {
-  ; MsgBox("Exit App", "Exit Title")
+; Ctrl + Win + Shift + Q
+#^+Q:: {
+  TrayTip "脚本退出", "脚本提示", 2
   ExitApp
 }
